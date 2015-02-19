@@ -1,5 +1,5 @@
 class CatRequest < ActiveRecord::Base
-  def fulfill
+  def fulfill!
     Cats.display! link
   end
 end
