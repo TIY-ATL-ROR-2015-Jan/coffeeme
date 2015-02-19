@@ -6,7 +6,7 @@ class CatsController < ApplicationController
 
   def serve
     @incoming = true
-    current_user.cat_me!
+    CatJob.perform_async current_user.id
     render :index
   end
 end
