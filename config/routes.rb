@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  root to: 'cats#index'
+  resources :cats, only: [:index] do
+    post :serve, on: :collection
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
