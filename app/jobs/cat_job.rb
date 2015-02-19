@@ -1,9 +1,7 @@
-class CatJob
-  include Sidekiq::Worker
+class CatJob < ActiveJob::Base
+  queue_as :default
 
-  def perform user_id
-    user = User.find(user_id)
-    return_unless_user
+  def perform user
     user.cat_me!
   end
 end
